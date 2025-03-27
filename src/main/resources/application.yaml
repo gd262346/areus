@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: areus-demo
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:areusdemodb
+    driverClassName: org.h2.Driver
+    username: areususer
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  sql:
+    init:
+      mode: always
+security:
+  jwt:
+    cookieName: areus
+    secret: david-galacz_areus_jwtsecret
+    expirationMs: 86400000
