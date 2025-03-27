@@ -37,7 +37,7 @@ public class CustomerService {
     }
 
     public Double getAverageAge() {
-        return customerRepository.getAverageAge();
+        return customerRepository.getAverageAge().orElse(0.0);
     }
 
     public List<CustomerEntity> getCustomersBetween18And40() {

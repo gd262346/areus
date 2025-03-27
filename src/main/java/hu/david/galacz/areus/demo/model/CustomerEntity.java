@@ -8,7 +8,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 
-@Entity
+@Entity(name = "customer")
 public class CustomerEntity {
 
     @Id
@@ -23,6 +23,12 @@ public class CustomerEntity {
 
     @Min(value = 14, message = "Age must be at least 14")
     private int age;
+
+    public CustomerEntity(String name, String email, int age) {
+        this.name = name;
+        this.email = email;
+        this.age = age;
+    }
 
     public Long getId() {
         return id;
