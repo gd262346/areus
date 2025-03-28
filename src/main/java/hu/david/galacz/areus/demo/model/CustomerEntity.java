@@ -1,9 +1,6 @@
 package hu.david.galacz.areus.demo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -24,7 +21,17 @@ public class CustomerEntity {
     @Min(value = 14, message = "Age must be at least 14")
     private int age;
 
+    public CustomerEntity() {
+    }
+
     public CustomerEntity(String name, String email, int age) {
+        this.name = name;
+        this.email = email;
+        this.age = age;
+    }
+
+    public CustomerEntity(Long id, String name, String email, int age) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.age = age;

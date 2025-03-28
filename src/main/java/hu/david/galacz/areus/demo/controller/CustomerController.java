@@ -3,6 +3,7 @@ package hu.david.galacz.areus.demo.controller;
 import hu.david.galacz.areus.demo.model.CustomerEntity;
 import hu.david.galacz.areus.demo.service.CustomerService;
 import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,12 +24,12 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}")
-    public CustomerEntity getById(@PathVariable Long id) {
+    public ResponseEntity<CustomerEntity> getById(@PathVariable Long id) {
         return customerService.getCustomerById(id);
     }
 
     @PostMapping
-    public CustomerEntity create(@Valid @RequestBody CustomerEntity customer) {
+    public ResponseEntity<CustomerEntity> create(@Valid @RequestBody CustomerEntity customer) {
         return customerService.createCustomer(customer);
     }
 
